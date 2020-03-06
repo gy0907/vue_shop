@@ -81,7 +81,6 @@ export default {
 </script>
 
 <style lang="less" scoped>
-@import "//at.alicdn.com/t/font_1668035_h174imzwqxi.css";
 .login_container {
   background: url('../assets/image/background.jpg') no-repeat;
   background-size: 100% 100%;

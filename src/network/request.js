@@ -8,7 +8,7 @@ function request(options){
   })
 
   instance.interceptors.request.use(options=>{
-    options.headers=""
+    options.headers.Authorization = window.sessionStorage.getItem('token')
     return options
   },err=>{
     console.log(err)
