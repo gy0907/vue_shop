@@ -1,5 +1,5 @@
 <template>
-  <el-container>
+  <el-container class="container" >
     <el-header>
       <div>
         <img class="xhy" src="../assets/image/xhy.png" alt="">
@@ -97,12 +97,11 @@ export default {
 </script>
 
 <style lang="less" scoped>
-.el-container {
+.container {
   height: 100%;
-} 
+}
 .el-header {
   background-color: #414141;
-  height: 50px;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -117,7 +116,6 @@ export default {
 }
 .el-aside {
   background-color: #f6f6f6;
-  height: 100%;
 }
 .el-container /deep/ .el-main {
   background-color: #eaedf2;
