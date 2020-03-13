@@ -31,7 +31,7 @@
         </template>
         <template slot="opt" slot-scope="scope">
           <el-button icon="el-icon-edit" size="mini" type="primary">编辑</el-button>
-          <el-button icon="el-icon-delete" size="mini" type="warning">删除</el-button>
+          <el-button  @click="deleteParams(scope.row)" icon="el-icon-delete" size="mini" type="warning">删除</el-button>
         </template>
       </tree-table>
 
@@ -211,8 +211,12 @@ export default {
           this.getCateList()
         })
       })
-
-
+    },
+    deleteParams(scopeRow) {
+      request({url: `categories/${scopeRow.cat_id}`, method: 'delete'}).then(res=>{
+        res.meta.status !== 200 ? this.$message.error('删除失败!'):this.$message.success('删除成功!')
+        this.getCateList()
+      })
     }
   }
 }
