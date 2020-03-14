@@ -45,6 +45,14 @@ const routes = [
         path: '/params',
         component: () => import('../view/goods/Params')
       },
+      {
+        path: '/goods',
+        component: () => import('../view/goods/List')
+      },
+      {
+        path: '/goods/add', 
+        component: () => import('../view/goods/Add')
+      }
     ]
   }
 ]
@@ -59,7 +67,20 @@ router.beforeEach((to,from,next)=>{
   // 有token且不为空就放行
   const token = window.sessionStorage.getItem('token')
   if(!token) return next('/login')
-  next()
+
+  // 添加商品时的离开提示
+  if(from.path==='/goods/add') {
+  Vue.prototype.$confirm('您确定要退出此页面(将不会保存更改)?', '提示', {
+      confirmButtonText: '确定',
+      cancelButtonText: '取消',
+      type: 'warning'
+  }).then(() => {
+      next()
+  })
+  } else {
+    next()
+  }
+  
 })
 
 export default router

@@ -17,7 +17,6 @@
           unique-opened
           :collapse="collapseFlag"
           :collapse-transition="false"
-          router
           >
           <el-submenu 
           v-for="item in menuItem"
@@ -91,6 +90,7 @@ export default {
     saveNavActive(path) {
       window.sessionStorage.setItem('path', path)
       this.NavPath = path
+      this.$router.push(`/${path}`).catch(err=>err)
     }
   }
 }
